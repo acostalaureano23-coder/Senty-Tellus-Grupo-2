@@ -1,0 +1,577 @@
+/* ============================================
+   SENTEY TELLUS — Estilos Globales
+   ============================================
+   
+   ✏️ CÓMO MODIFICAR COLORES:
+   Cambiá los valores en :root para cambiar 
+   los colores de TODA la página de una vez.
+   ============================================ */
+
+/* --- Google Fonts --- */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;500;600;700;800&display=swap');
+
+/* ✏️ EDITABLE: Cambiá estos colores para cambiar toda la paleta */
+:root {
+  /* Colores principales */
+  --color-bg:          #0a0a0f;       /* Fondo principal (negro profundo) */
+  --color-bg-light:    #111118;       /* Fondo un poco más claro */
+  --color-bg-card:     #16162a;       /* Fondo de tarjetas */
+  --color-primary:     #8b5cf6;       /* Morado principal */
+  --color-primary-dark:#7c3aed;       /* Morado oscuro */
+  --color-primary-glow:#a78bfa;       /* Morado claro / brillo */
+  --color-accent:      #c084fc;       /* Acento lila */
+  --color-text:        #e2e8f0;       /* Texto principal (blanco suave) */
+  --color-text-dim:    #94a3b8;       /* Texto secundario (gris) */
+  --color-border:      rgba(139, 92, 246, 0.15); /* Bordes sutiles */
+
+  /* Fuentes */
+  --font-body:    'Inter', sans-serif;
+  --font-heading: 'Outfit', sans-serif;
+}
+
+/* ============================================
+   RESET & BASE
+   ============================================ */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.7;
+  overflow-x: hidden;
+  min-height: 100vh;
+
+  /* ✏️ EDITABLE: Imagen de fondo (cambiá img/hero-bg.jpg por otra si querés) */
+  background-image: url('../img/hero-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;  /* La imagen queda fija al hacer scroll */
+  background-repeat: no-repeat;
+}
+
+/* Overlay oscuro para que el texto se lea bien sobre la imagen */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 10, 15, 0.75);
+  z-index: 0;
+  pointer-events: none;
+}
+
+a {
+  color: var(--color-primary-glow);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--color-accent);
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* ============================================
+   LAYOUT PRINCIPAL
+   Basado en el boceto: todo en una sola vista
+   con padding generoso y estructura limpia.
+   ============================================ */
+.page-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 30px 40px 40px 40px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  position: relative;
+  z-index: 1;
+}
+
+/* ============================================
+   HEADER — Título + ícono soporte
+   Sencillo: nombre centrado, ícono arriba-derecha
+   ============================================ */
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 10px 0;
+}
+
+.site-title {
+  font-family: var(--font-heading);
+  font-size: 2.8rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-align: center;
+  color: var(--color-text);
+}
+
+.site-title span {
+  color: var(--color-primary);
+}
+
+/* Ícono de soporte/historia (arriba a la derecha) */
+.header-icon {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: var(--color-text-dim);
+  font-size: 1.1rem;
+}
+
+.header-icon:hover {
+  border-color: var(--color-primary);
+  background: rgba(139, 92, 246, 0.1);
+  color: var(--color-primary-glow);
+  transform: translateY(-50%) scale(1.05);
+  box-shadow: 0 0 20px rgba(139, 92, 246, 0.2);
+}
+
+/* Tooltip del ícono */
+.header-icon .tooltip {
+  position: absolute;
+  bottom: -36px;
+  right: 0;
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  padding: 4px 12px;
+  border-radius: 8px;
+  font-size: 0.75rem;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  color: var(--color-text-dim);
+}
+
+.header-icon:hover .tooltip {
+  opacity: 1;
+}
+
+/* ============================================
+   SECCIÓN PRINCIPAL (centro)
+   Dos columnas: texto izquierda + servidor derecha
+   ============================================ */
+.main-content {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 30px;
+  flex: 1;
+  min-height: 0;
+}
+
+/* --- Columna izquierda: Texto descriptivo --- */
+.description-panel {
+  background: var(--color-bg-light);
+  border: 1px solid var(--color-border);
+  border-radius: 20px;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Brillo decorativo */
+.description-panel::before {
+  content: '';
+  position: absolute;
+  top: -100px;
+  left: -100px;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.description-panel h2 {
+  font-family: var(--font-heading);
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: var(--color-text);
+  position: relative;
+}
+
+.description-panel h2::after {
+  content: '';
+  display: block;
+  width: 50px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--color-primary), transparent);
+  border-radius: 2px;
+  margin-top: 12px;
+}
+
+.description-panel p {
+  color: var(--color-text-dim);
+  font-size: 0.95rem;
+  line-height: 1.9;
+  margin-bottom: 14px;
+  position: relative;
+}
+
+.description-panel p:last-child {
+  margin-bottom: 0;
+}
+
+/* --- Columna derecha: Tarjeta del servidor --- */
+.server-card {
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: 20px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.4s ease;
+  cursor: pointer;
+  position: relative;
+}
+
+.server-card:hover {
+  border-color: var(--color-primary);
+  box-shadow: 0 10px 40px rgba(139, 92, 246, 0.15);
+  transform: translateY(-4px);
+}
+
+.server-card-image {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+}
+
+.server-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.server-card:hover .server-card-image img {
+  transform: scale(1.05);
+}
+
+.server-card-body {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.server-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+  background: rgba(139, 92, 246, 0.15);
+  color: var(--color-primary-glow);
+  border: 1px solid rgba(139, 92, 246, 0.25);
+  width: fit-content;
+}
+
+.server-card-body h3 {
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: var(--color-text);
+}
+
+.server-card-body p {
+  color: var(--color-text-dim);
+  font-size: 0.88rem;
+  line-height: 1.6;
+  flex: 1;
+}
+
+/* Flecha ">" del boceto */
+.server-card-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 16px;
+  align-self: flex-end;
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+  color: white;
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);
+}
+
+.server-card:hover .server-card-arrow {
+  transform: translateX(4px);
+  box-shadow: 0 4px 25px rgba(139, 92, 246, 0.5);
+}
+
+/* ============================================
+   SECCIÓN MODALIDADES (abajo)
+   Tarjeta grande al fondo de la página
+   ============================================ */
+.modalidades-section {
+  background: var(--color-bg-light);
+  border: 1px solid var(--color-border);
+  border-radius: 20px;
+  padding: 40px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Brillo decorativo */
+.modalidades-section::before {
+  content: '';
+  position: absolute;
+  bottom: -100px;
+  right: -100px;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.05) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.modalidades-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+.modalidades-header h2 {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.modalidades-badge {
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  background: rgba(139, 92, 246, 0.1);
+  color: var(--color-primary-glow);
+  border: 1px solid rgba(139, 92, 246, 0.2);
+}
+
+/* Grid de modalidades */
+.modalidades-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.modalidad-card {
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: 16px;
+  padding: 28px 24px;
+  text-align: center;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.modalidad-card:hover {
+  border-color: var(--color-primary);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 30px rgba(139, 92, 246, 0.1);
+}
+
+.modalidad-icon {
+  font-size: 2.2rem;
+  margin-bottom: 14px;
+  display: block;
+}
+
+.modalidad-card h4 {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: var(--color-text);
+}
+
+.modalidad-card p {
+  color: var(--color-text-dim);
+  font-size: 0.82rem;
+  line-height: 1.6;
+}
+
+/* Tarjeta de Próximamente especial */
+.modalidad-card.coming-soon {
+  border-style: dashed;
+  opacity: 0.6;
+}
+
+.modalidad-card.coming-soon:hover {
+  opacity: 0.8;
+}
+
+/* ============================================
+   FOOTER — Minimal
+   ============================================ */
+.site-footer {
+  text-align: center;
+  padding: 20px 0 10px 0;
+  border-top: 1px solid var(--color-border);
+  margin-top: auto;
+}
+
+.site-footer p {
+  color: var(--color-text-dim);
+  font-size: 0.8rem;
+}
+
+.site-footer a {
+  color: var(--color-primary-glow);
+}
+
+/* ============================================
+   ANIMACIONES
+   ============================================ */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fade-in-delay-1 { transition-delay: 0.1s; }
+.fade-in-delay-2 { transition-delay: 0.2s; }
+.fade-in-delay-3 { transition-delay: 0.3s; }
+.fade-in-delay-4 { transition-delay: 0.4s; }
+
+/* Animación suave de brillo */
+@keyframes subtle-glow {
+  0%, 100% { box-shadow: 0 0 0 rgba(139, 92, 246, 0); }
+  50% { box-shadow: 0 0 30px rgba(139, 92, 246, 0.08); }
+}
+
+.description-panel,
+.server-card,
+.modalidades-section {
+  animation: subtle-glow 6s ease-in-out infinite;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+/* Tablets */
+@media (max-width: 992px) {
+  .page-wrapper {
+    padding: 24px;
+    gap: 24px;
+  }
+
+  .site-title {
+    font-size: 2.2rem;
+  }
+
+  .main-content {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .server-card {
+    flex-direction: row;
+    max-height: 200px;
+  }
+
+  .server-card-image {
+    width: 200px;
+    height: auto;
+    min-height: 100%;
+  }
+
+  .modalidades-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Celulares */
+@media (max-width: 600px) {
+  .page-wrapper {
+    padding: 16px;
+    gap: 16px;
+  }
+
+  .site-title {
+    font-size: 1.8rem;
+  }
+
+  .header-icon {
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+  }
+
+  .description-panel {
+    padding: 24px;
+  }
+
+  .description-panel h2 {
+    font-size: 1.3rem;
+  }
+
+  .server-card {
+    flex-direction: column;
+    max-height: none;
+  }
+
+  .server-card-image {
+    width: 100%;
+    height: 160px;
+  }
+
+  .modalidades-section {
+    padding: 24px;
+  }
+
+  .modalidades-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .modalidades-header {
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-start;
+  }
+}

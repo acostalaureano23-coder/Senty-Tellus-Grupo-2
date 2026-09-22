@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- ✏️ EDITABLE: Título de la pestaña del navegador -->
+  <title>Sentey Tellus — Innovación en Gaming</title>
+
+  <!-- ✏️ EDITABLE: Descripción para Google (SEO) -->
+  <meta name="description" content="Sentey Tellus es una empresa dedicada al desarrollo de proyectos gaming. Conocé Angels Wans, nuestro servidor de Minecraft multijugador.">
+
+  <!-- Estilos -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+  <div class="page-wrapper">
+
+    <!-- ========================================
+         HEADER — Título + ícono soporte/historia
+         ======================================== -->
+    <header class="site-header fade-in">
+
+      <!-- ✏️ EDITABLE: Nombre de la empresa -->
+      <h1 class="site-title">
+        Sentey <span>Tellus</span>
+      </h1>
+
+      <!-- ✏️ EDITABLE: Ícono arriba a la derecha (soporte/historia) -->
+      <!-- Cambiá el href="#historia" por un link a otra página si querés -->
+      <a href="#historia" class="header-icon" aria-label="Soporte e Historia">
+        📋
+        <span class="tooltip">Soporte / Historia</span>
+      </a>
+
+    </header>
+
+
+    <!-- ========================================
+         CONTENIDO PRINCIPAL
+         Izquierda: Texto descriptivo
+         Derecha: Tarjeta del servidor
+         ======================================== -->
+    <main class="main-content">
+
+      <!-- --- COLUMNA IZQUIERDA: Descripción --- -->
+      <div class="description-panel fade-in fade-in-delay-1" id="historia">
+
+        <!-- ✏️ EDITABLE: Título de la sección de texto -->
+        <h2>¿Quiénes somos?</h2>
+
+        <!-- ✏️ EDITABLE: Párrafos de la descripción / historia -->
+        <!-- Cambiá estos textos por la historia real de Sentey Tellus -->
+        <p>
+          Sentey Tellus nació en el año 2024 como un pequeño grupo de amigos
+          apasionados por los videojuegos y la tecnología. Lo que empezó como
+          un hobby, rápidamente se convirtió en algo más grande.
+        </p>
+
+        <p>
+          Nuestro primer gran proyecto fue Angels Wans, un servidor de 
+          Minecraft multijugador que creamos para nuestra comunidad. La idea
+          era simple: crear un espacio donde todos pudieran jugar, divertirse
+          y ser parte de algo especial.
+        </p>
+
+        <p>
+          Hoy, seguimos creciendo y trabajando en nuevos proyectos, siempre
+          con el mismo objetivo: crear experiencias únicas para nuestra 
+          comunidad gamer.
+        </p>
+        <!-- FIN textos editables -->
+
+      </div>
+
+      <!-- --- COLUMNA DERECHA: Tarjeta del servidor --- -->
+      <!-- ✏️ EDITABLE: Cambiá el href="#" por el link a la página de Angels Wans cuando la crees -->
+      <a href="#" class="server-card fade-in fade-in-delay-2" id="servidor">
+
+        <!-- ✏️ EDITABLE: Imagen del servidor (cambiá img/angels-wans.jpg) -->
+        <div class="server-card-image">
+          <img src="img/angels-wans.jpg" alt="Angels Wans - Servidor de Minecraft">
+        </div>
+
+        <div class="server-card-body">
+          <!-- ✏️ EDITABLE: Etiqueta, nombre y descripción del servidor -->
+          <span class="server-tag">🎮 Servidor</span>
+          <h3>Angels Wans</h3>
+          <p>Servidor de Minecraft multijugador. ¡Conectate y jugá!</p>
+
+          <!-- Flecha ">" como en el boceto -->
+          <div class="server-card-arrow">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+          </div>
+        </div>
+
+      </a>
+
+    </main>
+
+
+    <!-- ========================================
+         MODALIDADES — Sección inferior
+         ======================================== -->
+    <section class="modalidades-section fade-in fade-in-delay-3" id="modalidades">
+
+      <div class="modalidades-header">
+        <!-- ✏️ EDITABLE: Título de la sección -->
+        <h2>Modalidades</h2>
+        <span class="modalidades-badge">Angels Wans</span>
+      </div>
+
+      <div class="modalidades-grid">
+
+        <!-- ✏️ EDITABLE: Tarjetas de modalidades -->
+        <!-- Cambiá los emojis, títulos y descripciones -->
+        <!-- Podés agregar más tarjetas copiando un bloque <div class="modalidad-card"> -->
+
+        <div class="modalidad-card fade-in fade-in-delay-1">
+          <span class="modalidad-icon">⚔️</span>
+          <h4>Survival</h4>
+          <p>Sobrevivencia clásica con amigos. Construí, explorá y derrotá al Ender Dragon.</p>
+        </div>
+
+        <div class="modalidad-card fade-in fade-in-delay-2">
+          <span class="modalidad-icon">🏆</span>
+          <h4>Minijuegos</h4>
+          <p>BedWars, SkyWars y más. Competí contra otros jugadores en partidas rápidas.</p>
+        </div>
+
+        <div class="modalidad-card fade-in fade-in-delay-3">
+          <span class="modalidad-icon">🛒</span>
+          <h4>Tienda</h4>
+          <p>Rangos, kits y cosméticos exclusivos para personalizar tu experiencia.</p>
+        </div>
+
+        <!-- Tarjeta de Próximamente -->
+        <div class="modalidad-card coming-soon fade-in fade-in-delay-4">
+          <span class="modalidad-icon">🔮</span>
+          <h4>Próximamente</h4>
+          <p>Nuevas modalidades en camino. ¡Mantenete atento!</p>
+        </div>
+
+        <!-- FIN tarjetas de modalidades -->
+
+      </div>
+
+    </section>
+
+
+    <!-- ========================================
+         FOOTER — Pie de página minimal
+         ======================================== -->
+    <footer class="site-footer">
+      <!-- ✏️ EDITABLE: Texto del footer -->
+      <p>&copy; <span id="current-year">2024</span> Sentey Tellus. Hecho con 💜 por el equipo.</p>
+    </footer>
+
+  </div>
+
+  <!-- JavaScript -->
+  <script src="js/main.js"></script>
+
+</body>
+</html>
