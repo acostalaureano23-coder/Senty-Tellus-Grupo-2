@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tienda — Angel's Wans</title>
+  
+  <!-- Estilos de Angels Wans -->
+  <link rel="stylesheet" href="css/angels-wans.css">
+</head>
+<body>
+
+  <!-- ========================================
+       HEADER
+       ======================================== -->
+  <header class="aw-header">
+    <!-- Icono superior derecho (Carrito/Usuario) según boceto -->
+    <div class="aw-header-icons">
+      <span class="icon-cart">🛒</span>
+    </div>
+
+    <h1 class="aw-title">Tienda</h1>
+    
+    <nav class="aw-nav">
+      <a href="angels-wans.html">Principal</a>
+      <a href="tienda.html">Tienda</a>
+      <a href="novedades.html">Novedades</a>
+      <a href="#">Soporte</a>
+    </nav>
+  </header>
+
+  <!-- ========================================
+       CONTENIDO PRINCIPAL (Tienda)
+       ======================================== -->
+  <main class="aw-main store-main">
+    
+    <!-- GRID DE TIENDA: Barra lateral (izq) y Productos (der) -->
+    <div class="aw-store-layout">
+      
+      <!-- === BARRA LATERAL (Categorías y Carrito) === -->
+      <aside class="aw-sidebar">
+        <!-- Carrito / Cuenta -->
+        <div class="aw-sidebar-top">
+          <h3>Tu Carrito</h3>
+          <p>0 artículos</p>
+          <a href="#" class="btn-checkout">Ir a Pagar</a>
+        </div>
+        
+        <div class="aw-sidebar-divider"></div>
+        
+        <!-- Categorías -->
+        <div class="aw-sidebar-menu">
+          <h3>Categorías</h3>
+          <ul>
+            <li><a href="#" class="active">🔥 Destacados</a></li>
+            <li><a href="#">👑 Rangos Globales</a></li>
+            <li><a href="#">⚔️ Rangos Survival</a></li>
+            <li><a href="#">🗝️ Llaves</a></li>
+            <li><a href="#">💎 Cosméticos</a></li>
+            <li><a href="#">🪙 Monedas</a></li>
+          </ul>
+        </div>
+      </aside>
+
+      <!-- === SECCIÓN DE PRODUCTOS (Derecha) === -->
+      <div class="aw-store-content">
+        
+        <!-- Productos Regulares -->
+        <div class="section-label">Productos</div>
+        <div class="aw-products-grid">
+          
+          <!-- Producto 1 -->
+          <div class="aw-product-card">
+            <div class="product-image">
+              <!-- ✏️ EDITABLE -->
+              <img src="img/Fondop.png" alt="Rango VIP">
+            </div>
+            <div class="product-info">
+              <h4>Rango VIP</h4>
+              <p class="price">$5.00</p>
+              <button class="btn-buy">Añadir</button>
+            </div>
+          </div>
+
+          <!-- Producto 2 -->
+          <div class="aw-product-card">
+            <div class="product-image">
+              <!-- ✏️ EDITABLE -->
+              <img src="img/Fondop.png" alt="Rango MVP">
+            </div>
+            <div class="product-info">
+              <h4>Rango MVP</h4>
+              <p class="price">$10.00</p>
+              <button class="btn-buy">Añadir</button>
+            </div>
+          </div>
+
+          <!-- Producto 3 -->
+          <div class="aw-product-card">
+            <div class="product-image">
+              <!-- ✏️ EDITABLE -->
+              <img src="img/Fondop.png" alt="Rango Elite">
+            </div>
+            <div class="product-info">
+              <h4>Rango Elite</h4>
+              <p class="price">$15.00</p>
+              <button class="btn-buy">Añadir</button>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Producto Relevante / Destacado -->
+        <div class="section-label" style="margin-top: 40px;">Producto Destacado</div>
+        
+        <div class="aw-card-vertical" style="padding: 20px;">
+          <div class="aw-card-row">
+            <div class="aw-card-image" style="flex: 0 0 200px; height: 180px;">
+              <!-- ✏️ EDITABLE -->
+              <img src="img/Fondop.png" alt="Caja Misteriosa">
+            </div>
+            <div class="aw-card-content">
+              <h3>Caja Misteriosa Épica</h3>
+              <p>Contiene cosméticos únicos, llaves especiales y una pequeña posibilidad de obtener un rango superior de por vida.</p>
+              <p class="price" style="font-size: 1.5rem; color: var(--color-primary-glow); margin: 10px 0;">$2.99</p>
+              <button class="btn-buy" style="width: auto; padding: 10px 30px;">Comprar Ahora</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- ========================================
+       FOOTER
+       ======================================== -->
+  <footer class="aw-footer">
+    <p>&copy; 2024 Sentey Tellus. Angel's Wans es un proyecto oficial.</p>
+  </footer>
+
+</body>
+</html>
