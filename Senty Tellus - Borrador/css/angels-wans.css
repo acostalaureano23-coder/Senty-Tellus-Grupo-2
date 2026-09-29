@@ -1,0 +1,259 @@
+/* ============================================
+   ANGELS WANS — Estilos Específicos
+   ============================================ */
+
+/* --- Google Fonts --- */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;500;600;700;800&display=swap');
+
+:root {
+  /* Colores principales */
+  --color-bg-dark:     #0a0a0f;       /* Negro profundo (Header/Footer) */
+  --color-primary:     #8b5cf6;       /* Morado principal */
+  --color-primary-glow:#a78bfa;       /* Morado claro */
+  --color-text:        #e2e8f0;       /* Texto blanco suave */
+  --color-text-dim:    #94a3b8;       /* Texto secundario */
+  --color-card-bg:     rgba(22, 22, 42, 0.85); /* Fondo semitransparente para tarjetas */
+  --color-border:      rgba(139, 92, 246, 0.3);
+
+  --font-body:    'Inter', sans-serif;
+  --font-heading: 'Outfit', sans-serif;
+}
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--color-text);
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  
+  /* Fondo temático de Minecraft para el cuerpo */
+  background-image: url('../img/minecraft-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+/* Oscurecer un poco el fondo para que el texto resalte */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 10, 15, 0.6);
+  z-index: -1;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s ease;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* ============================================
+   HEADER & NAVEGACIÓN (Fondo negro)
+   ============================================ */
+.aw-header {
+  background-color: var(--color-bg-dark);
+  text-align: center;
+  padding: 30px 0 0 0;
+  border-bottom: 2px solid var(--color-primary);
+}
+
+.aw-title {
+  font-family: var(--font-heading);
+  font-size: 3.5rem;
+  font-weight: 800;
+  letter-spacing: 3px;
+  color: var(--color-text);
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  text-shadow: 0 0 20px rgba(139, 92, 246, 0.5);
+}
+
+.aw-nav {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  padding: 15px 0;
+  background: rgba(0, 0, 0, 0.3);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.aw-nav a {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-text-dim);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.aw-nav a:hover {
+  color: var(--color-primary-glow);
+  text-shadow: 0 0 10px var(--color-primary);
+}
+
+/* ============================================
+   CONTENIDO PRINCIPAL
+   ============================================ */
+.aw-main {
+  flex: 1;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 50px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.section-label {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  color: var(--color-primary-glow);
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.section-label::before {
+  content: '';
+  display: block;
+  width: 30px;
+  height: 2px;
+  background: var(--color-primary);
+}
+
+/* Tarjetas (Cards) */
+.aw-card {
+  background: var(--color-card-bg);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--color-border);
+  border-radius: 16px;
+  padding: 30px;
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.aw-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(139, 92, 246, 0.2);
+  border-color: var(--color-primary-glow);
+}
+
+.aw-card-image {
+  flex: 0 0 300px;
+  height: 200px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 2px solid rgba(139, 92, 246, 0.2);
+}
+
+.aw-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.aw-card:hover .aw-card-image img {
+  transform: scale(1.05);
+}
+
+.aw-card-content {
+  flex: 1;
+}
+
+.aw-card-content h3 {
+  font-family: var(--font-heading);
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+  color: white;
+}
+
+.aw-card-content p {
+  color: var(--color-text-dim);
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+/* Tarjeta Modalidades (Imagen a la derecha) */
+.aw-card.reverse {
+  flex-direction: row-reverse;
+  position: relative;
+}
+
+/* Flecha de la tarjeta reverse */
+.aw-card-arrow {
+  position: absolute;
+  right: -20px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  background: var(--color-primary);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: white;
+  box-shadow: 0 0 15px rgba(139, 92, 246, 0.5);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.aw-card.reverse:hover .aw-card-arrow {
+  right: -25px;
+  background: var(--color-primary-glow);
+}
+
+/* ============================================
+   FOOTER (Fondo negro)
+   ============================================ */
+.aw-footer {
+  background-color: var(--color-bg-dark);
+  text-align: center;
+  padding: 30px 20px;
+  border-top: 1px solid var(--color-border);
+  margin-top: auto;
+}
+
+.aw-footer p {
+  color: var(--color-text-dim);
+  font-size: 0.9rem;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 768px) {
+  .aw-title { font-size: 2.5rem; }
+  .aw-nav { gap: 15px; flex-wrap: wrap; }
+  .aw-card, .aw-card.reverse { 
+    flex-direction: column; 
+    gap: 20px;
+  }
+  .aw-card-image {
+    flex: none;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16/9;
+  }
+  .aw-card-arrow { display: none; } /* Ocultar flecha en móviles */
+}
