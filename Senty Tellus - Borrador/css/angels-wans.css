@@ -7,19 +7,27 @@
 
 :root {
   /* Colores principales */
-  --color-bg-dark:     #0a0a0f;       /* Negro profundo (Header/Footer) */
-  --color-primary:     #8b5cf6;       /* Morado principal */
-  --color-primary-glow:#a78bfa;       /* Morado claro */
-  --color-text:        #e2e8f0;       /* Texto blanco suave */
-  --color-text-dim:    #94a3b8;       /* Texto secundario */
-  --color-card-bg:     rgba(22, 22, 42, 0.85); /* Fondo semitransparente para tarjetas */
-  --color-border:      rgba(139, 92, 246, 0.3);
+  --color-bg-dark: #0a0a0f;
+  /* Negro profundo (Header/Footer) */
+  --color-primary: #8b5cf6;
+  /* Morado principal */
+  --color-primary-glow: #a78bfa;
+  /* Morado claro */
+  --color-text: #e2e8f0;
+  /* Texto blanco suave */
+  --color-text-dim: #94a3b8;
+  /* Texto secundario */
+  --color-card-bg: rgba(22, 22, 42, 0.85);
+  /* Fondo semitransparente para tarjetas */
+  --color-border: rgba(139, 92, 246, 0.3);
 
-  --font-body:    'Inter', sans-serif;
+  --font-body: 'Inter', sans-serif;
   --font-heading: 'Outfit', sans-serif;
 }
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -32,9 +40,9 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  
+
   /* Fondo temático de Minecraft para el cuerpo */
-  background-image: url('../img/minecraft-bg.jpg');
+  background-image: url('../img/Fondop.png');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -243,17 +251,79 @@ img {
    RESPONSIVE
    ============================================ */
 @media (max-width: 768px) {
-  .aw-title { font-size: 2.5rem; }
-  .aw-nav { gap: 15px; flex-wrap: wrap; }
-  .aw-card, .aw-card.reverse { 
-    flex-direction: column; 
+  .aw-title {
+    font-size: 2.5rem;
+  }
+
+  .aw-nav {
+    gap: 15px;
+    flex-wrap: wrap;
+  }
+
+  .aw-card,
+  .aw-card.reverse {
+    flex-direction: column;
     gap: 20px;
   }
+
   .aw-card-image {
     flex: none;
     width: 100%;
     height: auto;
     aspect-ratio: 16/9;
   }
-  .aw-card-arrow { display: none; } /* Ocultar flecha en móviles */
+
+  .aw-card-arrow {
+    display: none;
+  }
+
+  /* Ocultar flecha en móviles */
+}/* ============================================
+   ESTILOS PARA NOVEDADES (A�adido)
+   ============================================ */
+
+.aw-card-vertical {
+  background: var(--color-card-bg);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--color-border);
+  border-radius: 16px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.aw-card-vertical:hover {
+  box-shadow: 0 10px 30px rgba(139, 92, 246, 0.2);
+  border-color: var(--color-primary-glow);
+}
+
+.aw-card-row {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.aw-card-row.reverse {
+  flex-direction: row-reverse;
+}
+
+.aw-card-divider {
+  width: 100%;
+  height: 1px;
+  background: var(--color-border);
+  opacity: 0.5;
+}
+
+.aw-card-row .aw-card-image {
+  flex: 0 0 250px;
+  height: 160px;
+}
+
+@media (max-width: 768px) {
+  .aw-card-row, .aw-card-row.reverse {
+    flex-direction: column;
+  }
 }
