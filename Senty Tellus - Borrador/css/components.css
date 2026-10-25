@@ -1,0 +1,807 @@
+/* ============================================================
+   SENTEY TELLUS & ANGEL'S WANS — ESTILOS DE COMPONENTES
+   ============================================================
+   Incluye:
+   - Modales (Auth, Checkout, Recibo de Compra, Visor de BD)
+   - Sistema de Toasts (Notificaciones flotantes)
+   - Recibo Digital estilo Gamer / Ticket Oficial
+   - Tablas interactivas de Base de Datos
+   - Widget de Usuario y Carrito en el Header
+   ============================================================ */
+
+/* --- TOASTS NOTIFICACIONES --- */
+.tellus-toast-container {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 99999;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  pointer-events: none;
+}
+
+.tellus-toast {
+  background: rgba(18, 18, 35, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: #fff;
+  border: 1px solid var(--color-primary-glow, #a78bfa);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6), 0 0 15px rgba(139, 92, 246, 0.3);
+  padding: 14px 20px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.95rem;
+  min-width: 280px;
+  max-width: 400px;
+  pointer-events: auto;
+  animation: toastSlideIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.tellus-toast.toast-success {
+  border-left: 4px solid #10b981;
+}
+
+.tellus-toast.toast-error {
+  border-left: 4px solid #ef4444;
+}
+
+.tellus-toast.toast-info {
+  border-left: 4px solid #8b5cf6;
+}
+
+.tellus-toast.toast-hide {
+  opacity: 0;
+  transform: translateX(30px);
+}
+
+@keyframes toastSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* --- OVERLAY DE MODAL GENERAL --- */
+.tellus-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(4, 4, 10, 0.82);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+}
+
+.tellus-modal-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.tellus-modal {
+  background: #111122;
+  border: 1px solid rgba(139, 92, 246, 0.35);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8), 0 0 30px rgba(139, 92, 246, 0.2);
+  border-radius: 20px;
+  width: 100%;
+  max-width: 520px;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  transform: scale(0.93) translateY(15px);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  color: #e2e8f0;
+}
+
+.tellus-modal-overlay.active .tellus-modal {
+  transform: scale(1) translateY(0);
+}
+
+.tellus-modal-wide {
+  max-width: 900px;
+}
+
+.tellus-modal-header {
+  padding: 24px 28px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(139, 92, 246, 0.2);
+}
+
+.tellus-modal-header h2 {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.5rem;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.tellus-modal-close {
+  background: transparent;
+  border: none;
+  color: #94a3b8;
+  font-size: 1.5rem;
+  cursor: pointer;
+  line-height: 1;
+  padding: 4px 8px;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.tellus-modal-close:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.tellus-modal-body {
+  padding: 24px 28px 30px;
+}
+
+/* --- TABS DE MODALES --- */
+.tellus-tabs {
+  display: flex;
+  gap: 10px;
+  background: rgba(0, 0, 0, 0.35);
+  padding: 6px;
+  border-radius: 12px;
+  margin-bottom: 24px;
+  border: 1px solid rgba(139, 92, 246, 0.2);
+}
+
+.tellus-tab-btn {
+  flex: 1;
+  background: transparent;
+  border: none;
+  color: #94a3b8;
+  padding: 10px 16px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: 'Inter', sans-serif;
+}
+
+.tellus-tab-btn.active {
+  background: #8b5cf6;
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.35);
+}
+
+/* --- FORMULARIOS --- */
+.tellus-form-group {
+  margin-bottom: 18px;
+}
+
+.tellus-form-group label {
+  display: block;
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: #cbd5e1;
+  margin-bottom: 8px;
+}
+
+.tellus-input {
+  width: 100%;
+  background: rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(139, 92, 246, 0.3);
+  border-radius: 10px;
+  padding: 12px 16px;
+  color: #fff;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+}
+
+.tellus-input:focus {
+  outline: none;
+  border-color: #a78bfa;
+  box-shadow: 0 0 12px rgba(139, 92, 246, 0.4);
+}
+
+.tellus-form-help {
+  font-size: 0.8rem;
+  color: #94a3b8;
+  margin-top: 6px;
+}
+
+.tellus-btn-primary {
+  width: 100%;
+  background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 13px 20px;
+  font-size: 1rem;
+  font-weight: 600;
+  font-family: 'Outfit', sans-serif;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 15px rgba(139, 92, 246, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.tellus-btn-primary:hover {
+  background: linear-gradient(135deg, #a78bfa 0%, #8b5cf6 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(139, 92, 246, 0.5);
+}
+
+.tellus-btn-secondary {
+  background: rgba(255, 255, 255, 0.08);
+  color: #e2e8f0;
+  border: 1px solid rgba(139, 92, 246, 0.3);
+  border-radius: 10px;
+  padding: 10px 18px;
+  font-size: 0.92rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.tellus-btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  border-color: #a78bfa;
+}
+
+/* --- BADGES Y AVISOS --- */
+.tellus-badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.tellus-badge-primary {
+  background: rgba(139, 92, 246, 0.2);
+  color: #c4b5fd;
+  border: 1px solid rgba(139, 92, 246, 0.4);
+}
+
+.tellus-badge-success {
+  background: rgba(16, 185, 129, 0.2);
+  color: #6ee7b7;
+  border: 1px solid rgba(16, 185, 129, 0.4);
+}
+
+.tellus-badge-warning {
+  background: rgba(245, 158, 11, 0.2);
+  color: #fde68a;
+  border: 1px solid rgba(245, 158, 11, 0.4);
+}
+
+.tellus-alert-box {
+  background: rgba(139, 92, 246, 0.12);
+  border: 1px solid rgba(139, 92, 246, 0.3);
+  border-radius: 12px;
+  padding: 14px 18px;
+  margin-bottom: 20px;
+  font-size: 0.88rem;
+  color: #ddd6fe;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.tellus-alert-box.no-card-alert {
+  background: rgba(16, 185, 129, 0.1);
+  border-color: rgba(16, 185, 129, 0.35);
+  color: #a7f3d0;
+}
+
+/* --- HEADER WIDGET (Usuario & BD) --- */
+.site-header #tellus-header-actions {
+  position: absolute;
+  right: 56px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.aw-user-nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.btn-header-db {
+  background: rgba(139, 92, 246, 0.18);
+  border: 1px solid rgba(139, 92, 246, 0.4);
+  color: #c4b5fd;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none;
+}
+
+.btn-header-db:hover {
+  background: #8b5cf6;
+  color: #fff;
+  box-shadow: 0 0 12px rgba(139, 92, 246, 0.5);
+}
+
+.btn-header-auth {
+  background: #8b5cf6;
+  border: none;
+  color: #fff;
+  padding: 7px 16px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.btn-header-auth:hover {
+  background: #a78bfa;
+  transform: translateY(-1px);
+}
+
+.aw-user-dropdown-container {
+  position: relative;
+}
+
+.aw-user-pill {
+  background: rgba(22, 22, 42, 0.9);
+  border: 1px solid rgba(139, 92, 246, 0.4);
+  color: #fff;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+}
+
+.aw-user-pill:hover {
+  border-color: #a78bfa;
+}
+
+.aw-user-dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  width: 210px;
+  background: #141428;
+  border: 1px solid rgba(139, 92, 246, 0.35);
+  border-radius: 12px;
+  padding: 8px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  z-index: 1000;
+}
+
+.aw-user-dropdown.active {
+  display: flex;
+}
+
+.aw-user-dropdown button,
+.aw-user-dropdown a {
+  background: transparent;
+  border: none;
+  color: #cbd5e1;
+  text-align: left;
+  padding: 10px 12px;
+  font-size: 0.88rem;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  transition: all 0.15s ease;
+  font-family: inherit;
+}
+
+.aw-user-dropdown button:hover,
+.aw-user-dropdown a:hover {
+  background: rgba(139, 92, 246, 0.2);
+  color: #fff;
+}
+
+.aw-user-dropdown-divider {
+  height: 1px;
+  background: rgba(139, 92, 246, 0.2);
+  margin: 4px 0;
+}
+
+/* --- BADGE DEL CARRITO --- */
+.cart-badge {
+  background: #ef4444;
+  color: #fff;
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 10px;
+  margin-left: 4px;
+  vertical-align: middle;
+}
+
+/* --- MODAL DE CHECKOUT SIMULADO --- */
+.checkout-items-list {
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(139, 92, 246, 0.2);
+  border-radius: 12px;
+  padding: 12px 16px;
+  max-height: 180px;
+  overflow-y: auto;
+  margin-bottom: 20px;
+}
+
+.checkout-item-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  font-size: 0.92rem;
+}
+
+.checkout-item-row:last-child {
+  border-bottom: none;
+}
+
+.checkout-total-summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 0;
+  margin-top: 10px;
+  border-top: 2px dashed rgba(139, 92, 246, 0.3);
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.checkout-total-summary span:last-child {
+  color: #a78bfa;
+}
+
+/* --- RECIBO DIGITAL OFICIAL (TICKET GAMER) --- */
+.digital-receipt-wrapper {
+  background: #0d0d1a;
+  border: 2px dashed rgba(139, 92, 246, 0.45);
+  border-radius: 16px;
+  padding: 28px;
+  position: relative;
+  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.receipt-header {
+  text-align: center;
+  border-bottom: 1px solid rgba(139, 92, 246, 0.25);
+  padding-bottom: 18px;
+  margin-bottom: 18px;
+}
+
+.receipt-header .receipt-logo {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: 1px;
+}
+
+.receipt-header .receipt-logo span {
+  color: #8b5cf6;
+}
+
+.receipt-header p {
+  color: #94a3b8;
+  font-size: 0.85rem;
+  margin-top: 4px;
+}
+
+.receipt-meta-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  background: rgba(22, 22, 42, 0.6);
+  border-radius: 10px;
+  padding: 12px 16px;
+  margin-bottom: 20px;
+  font-size: 0.85rem;
+}
+
+.receipt-meta-grid div span:first-child {
+  display: block;
+  color: #94a3b8;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  margin-bottom: 2px;
+}
+
+.receipt-meta-grid div span:last-child {
+  color: #fff;
+  font-weight: 600;
+}
+
+.receipt-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+  font-size: 0.9rem;
+}
+
+.receipt-table th {
+  text-align: left;
+  color: #94a3b8;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  border-bottom: 1px solid rgba(139, 92, 246, 0.2);
+  padding-bottom: 8px;
+}
+
+.receipt-table td {
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  color: #e2e8f0;
+}
+
+.receipt-table td:last-child,
+.receipt-table th:last-child {
+  text-align: right;
+}
+
+.receipt-total-row {
+  display: flex;
+  justify-content: space-between;
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #fff;
+  padding: 14px 0;
+  border-top: 2px solid rgba(139, 92, 246, 0.35);
+  margin-top: 10px;
+}
+
+.receipt-barcode {
+  text-align: center;
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px dashed rgba(255, 255, 255, 0.1);
+  font-family: monospace;
+  letter-spacing: 4px;
+  color: #a78bfa;
+  font-size: 0.95rem;
+}
+
+.receipt-instructions {
+  background: rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  border-radius: 10px;
+  padding: 12px;
+  font-size: 0.85rem;
+  color: #a7f3d0;
+  text-align: center;
+  margin-top: 16px;
+}
+
+/* --- TABLAS DEL VISOR DE BASE DE DATOS --- */
+.db-table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  border-radius: 12px;
+  border: 1px solid rgba(139, 92, 246, 0.25);
+  background: rgba(10, 10, 20, 0.6);
+  margin-top: 16px;
+  max-height: 400px;
+}
+
+.tellus-db-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+  min-width: 650px;
+}
+
+.tellus-db-table th {
+  background: #17172e;
+  color: #c4b5fd;
+  text-align: left;
+  padding: 12px 14px;
+  font-weight: 600;
+  border-bottom: 2px solid rgba(139, 92, 246, 0.4);
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+
+.tellus-db-table td {
+  padding: 12px 14px;
+  border-bottom: 1px solid rgba(139, 92, 246, 0.15);
+  color: #e2e8f0;
+}
+
+.tellus-db-table tr:hover {
+  background: rgba(139, 92, 246, 0.08);
+}
+
+.tellus-db-table .btn-table-action {
+  background: rgba(239, 68, 68, 0.2);
+  border: 1px solid rgba(239, 68, 68, 0.4);
+  color: #fca5a5;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.tellus-db-table .btn-table-action:hover {
+  background: #ef4444;
+  color: #fff;
+}
+
+.db-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+
+.db-stats {
+  display: flex;
+  gap: 10px;
+}
+
+.db-stat-pill {
+  background: rgba(139, 92, 246, 0.15);
+  border: 1px solid rgba(139, 92, 246, 0.3);
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  color: #ddd6fe;
+}
+
+.db-actions-row {
+  display: flex;
+  gap: 10px;
+}
+
+/* --- CARRITO EN SIDEBAR DE TIENDA (Items agregados) --- */
+.cart-items-container {
+  margin: 15px 0;
+  max-height: 220px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.cart-item-card {
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(139, 92, 246, 0.2);
+  border-radius: 10px;
+  padding: 10px 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cart-item-info h5 {
+  font-size: 0.88rem;
+  color: #fff;
+  margin-bottom: 2px;
+}
+
+.cart-item-info p {
+  font-size: 0.78rem;
+  color: #a78bfa !important;
+  margin: 0 !important;
+}
+
+.cart-item-controls {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.cart-qty-btn {
+  background: rgba(139, 92, 246, 0.3);
+  border: none;
+  color: #fff;
+  width: 24px;
+  height: 24px;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 0.8rem;
+  transition: background 0.2s ease;
+}
+
+.cart-qty-btn:hover {
+  background: #8b5cf6;
+}
+
+.cart-remove-btn {
+  background: transparent;
+  border: none;
+  color: #ef4444;
+  cursor: pointer;
+  font-size: 0.9rem;
+  padding: 2px 4px;
+  margin-left: 4px;
+}
+
+/* --- ESTILOS DE IMPRESIÓN PARA EL RECIBO --- */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  .tellus-modal-overlay.active,
+  .digital-receipt-wrapper,
+  .digital-receipt-wrapper * {
+    visibility: visible;
+  }
+  .digital-receipt-wrapper {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    border: none;
+    background: #fff !important;
+    color: #000 !important;
+    box-shadow: none;
+    padding: 20px;
+  }
+  .receipt-header .receipt-logo,
+  .receipt-header p,
+  .receipt-meta-grid div span,
+  .receipt-table td,
+  .receipt-table th,
+  .receipt-total-row,
+  .receipt-barcode {
+    color: #000 !important;
+  }
+  .receipt-meta-grid {
+    background: #f1f5f9 !important;
+    border: 1px solid #cbd5e1;
+  }
+  .tellus-modal-header,
+  .receipt-buttons-row,
+  .tellus-modal-close {
+    display: none !important;
+  }
+}

@@ -6,8 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tienda — Angel's Wans</title>
 
-  <!-- Estilos de Angels Wans -->
+  <!-- Estilos de Angels Wans y Componentes Tellus -->
   <link rel="stylesheet" href="css/angels-wans.css">
+  <link rel="stylesheet" href="css/components.css">
 </head>
 
 <body>
@@ -69,46 +70,7 @@
         <!-- Productos Regulares -->
         <div class="section-label">Productos</div>
         <div class="aw-products-grid">
-
-          <!-- Producto 1 -->
-          <div class="aw-product-card">
-            <div class="product-image">
-              <!-- ✏️ EDITABLE -->
-              <img src="img/Fondop.png" alt="Rango VIP">
-            </div>
-            <div class="product-info">
-              <h4>Rango VIP</h4>
-              <p class="price">$5.00</p>
-              <button class="btn-buy">Añadir</button>
-            </div>
-          </div>
-
-          <!-- Producto 2 -->
-          <div class="aw-product-card">
-            <div class="product-image">
-              <!-- ✏️ EDITABLE -->
-              <img src="img/Fondop.png" alt="Rango MVP">
-            </div>
-            <div class="product-info">
-              <h4>Rango MVP</h4>
-              <p class="price">$10.00</p>
-              <button class="btn-buy">Añadir</button>
-            </div>
-          </div>
-
-          <!-- Producto 3 -->
-          <div class="aw-product-card">
-            <div class="product-image">
-              <!-- ✏️ EDITABLE -->
-              <img src="img/Fondop.png" alt="Rango Elite">
-            </div>
-            <div class="product-info">
-              <h4>Rango Elite</h4>
-              <p class="price">$15.00</p>
-              <button class="btn-buy">Añadir</button>
-            </div>
-          </div>
-
+          <!-- Cargados dinámicamente desde TellusDB -->
         </div>
 
         <!-- Producto Relevante / Destacado -->
@@ -116,14 +78,12 @@
 
         <div class="aw-card-vertical" style="padding: 20px;">
           <div class="aw-card-row">
-            <div class="aw-card-image" style="flex: 0 0 200px; height: 180px;">
-              <!-- ✏️ EDITABLE -->
-              <img src="img/Fondop.png" alt="Caja Misteriosa">
+            <div class="aw-card-image" style="flex: 0 0 200px; height: 180px; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.4); font-size: 4rem;">
+              🎁
             </div>
             <div class="aw-card-content">
               <h3>Caja Misteriosa Épica</h3>
-              <p>Contiene cosméticos únicos, llaves especiales y una pequeña posibilidad de obtener un rango superior de
-                por vida.</p>
+              <p>Contiene cosméticos únicos, llaves especiales y una pequeña posibilidad de obtener un rango superior permanente de por vida.</p>
               <p class="price" style="font-size: 1.5rem; color: var(--color-primary-glow); margin: 10px 0;">$2.99</p>
               <button class="btn-buy" style="width: auto; padding: 10px 30px;">Comprar Ahora</button>
             </div>
@@ -143,6 +103,11 @@
     <p>&copy; 2024 Sentey Tellus. Angel's Wans es un proyecto oficial.</p>
   </footer>
 
+  <!-- Scripts de Tellus: Base de Datos, Autenticación y Tienda -->
+  <script src="js/db.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/db-viewer.js"></script>
+  <script src="js/store.js"></script>
 </body>
 
 </html>
