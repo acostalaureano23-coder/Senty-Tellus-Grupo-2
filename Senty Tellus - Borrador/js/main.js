@@ -41,4 +41,35 @@ document.addEventListener('DOMContentLoaded', () => {
     yearEl.textContent = new Date().getFullYear();
   }
 
+  // ===========================================
+  // 3) PROTECCIÓN DE ACCESO: PANEL DE BASE DE DATOS
+  // ===========================================
+  // Solo los usuarios con rol de 'admin' pueden entrar al panel
+  const appLauncher = document.getElementById('btn-app-launcher');
+  if (appLauncher) {
+    appLauncher.addEventListener('click', (e) => {
+      const user = (typeof TellusDB !== 'undefined' && TellusDB.session) ? TellusDB.session.getUser() : null;
+
+      if (!user) {
+        // No está logueado
+        e.preventDefault();
+        if (typeof TellusToast !== 'undefined') {
+          TellusToast.show('🔒 Acceso restringido: Iniciá sesión como Administrador para ingresar al panel.', 'warning');
+        }
+        if (typeof TellusAuth !== 'undefined' && TellusAuth.openAuthModal) {
+          TellusAuth.openAuthModal();
+        }
+      } else if (user.rol !== 'admin') {
+        // Está logueado pero no es admin
+        e.preventDefault();
+        if (typeof TellusToast !== 'undefined') {
+          TellusToast.show(`⛔ Acceso denegado: Tu cuenta (${user.nombre.split(' ')[0]}) no tiene permisos de Administrador.`, 'error');
+        } else {
+          alert('Acceso denegado: Solo cuentas con rol de Administrador pueden ingresar a la base de datos.');
+        }
+      }
+      // Si user.rol === 'admin', el enlace sigue normalmente a admin-db.html
+    });
+  }
+
 });

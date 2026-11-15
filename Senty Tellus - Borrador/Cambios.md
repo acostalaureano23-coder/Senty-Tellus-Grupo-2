@@ -139,4 +139,55 @@ Guarda cada orden o compra ficticia realizada en la tienda.
    - Si vas a la pestaña de tu usuario en la cabecera y seleccionás **`📦 Mis Compras`**, podés volver a abrir tus comprobantes cuando quieras.
 
 ---
+
+## 📞 Actualización de Pie de Página (Footer con Contacto Oficial)
+- **Instagram Oficial:** Enlazado a `https://www.instagram.com/senty_tellus_corp/` con apertura en nueva pestaña.
+- **WhatsApp Oficial:** Enlazado al número directo `+542216427371` vía `https://wa.me/542216427371`.
+- **Gmail de la Empresa (Editable):** Apartado con ícono oficial y correo provisional `contacto.senteytellus@gmail.com` etiquetado con comentarios HTML (`<!-- ✏️ EDITABLE: ... -->`) para modificarlo fácilmente cuando se cree la cuenta oficial.
+- **Diseño Unificado & Responsivo:** Estilizado en `components.css` con efecto glow, íconos vectoriales SVG y compatibilidad para móviles en todas las páginas (`index.html`, `angels-wans.html`, `novedades.html`, `soporte.html`, `tienda.html` y `admin-db.html`).
+
+---
+
+## 🎨 Rediseño Corporativo de Senty Tellus (Basado en el Boceto Visual)
+- **Paleta Corporativa Calma ("Tranqui"):** Se transformó la página principal (`index.html` y `css/styles.css`) pasando del modo oscuro de gaming a una paleta cálida y empresarial (tonos beige suave `#f8f3ec`, marfil `#fffdfa`, acentos en cuero/terracota `#834f2a` y tipografía café oscuro `#452c1e`), tal como solicitó el docente para la empresa.
+- **Fondo con Ondas Orgánicas:** Gráfico vectorial SVG decorativo con curvas bezier fluidas en tonos arena y crema.
+- **Nuevo Encabezado & Logo Oficial:** Integración del logo del mundo de Senty Tellus con fondo transparente, tipografía *Outfit*, botón de ingreso/registro estilizado en formato píldora y acceso directo de 9 puntos (App Launcher) al panel del sistema.
+- **Hero Card Principal:**
+  - Columna izquierda: Presentación formal ("Bienvenido a Senty Tellus"), párrafos corporativos y botón interactivo `Comenzar ➔`.
+  - Columna derecha: Tarjeta visual de Angels Wans con la imagen del servidor, etiqueta `🎮 Servidor` y acceso directo a `angels-wans.html`.
+- **Sección "Nuestros Módulos":**
+  - Contenedor con encabezado iconográfico y botón `Ver todos los módulos ›`.
+  - Cuatro tarjetas con íconos vectoriales en círculos cálidos: **Survival** (estadísticas), **Minijuegos** (trofeo), **Tienda** (carrito hacia `tienda.html`) y **Próximamente** (reloj). Cada tarjeta incluye botón de acción circular con flecha interactiva.
+- **Footer Corporativo Integrado:** Línea horizontal minimalista con separadores, manteniendo los accesos a Instagram, WhatsApp y el correo Gmail editable.
+- **Preservación de Angels Wans:** Las páginas del servidor (`angels-wans.html`, `tienda.html`, `novedades.html`, `soporte.html`) mantienen intacto su estilo gamer inmersivo de Minecraft con fondo oscuro.
+
+## 🔒 Control de Acceso Estricto: Panel de Base de Datos para Rol 'admin'
+- **Protección en Senty Tellus (`index.html`):** El botón de menú de 9 puntos (App Launcher) ahora intercepta el clic y comprueba la sesión activa en `TellusDB`. Si el usuario no inició sesión, muestra una advertencia ("Iniciá sesión como Administrador") y despliega el modal de login. Si el usuario está registrado con rol común (`usuario`), se bloquea el acceso con aviso de permisos insuficientes.
+- **Protección en el Panel (`admin-db.html`):** Se implementó una barrera de seguridad completa en el propio archivo. Si alguien intenta ingresar directamente sin sesión o con rol común, el contenido de la base de datos (tablas, compras, usuarios, KPIs y JSON) permanece completamente oculto y se muestra una pantalla de **Acceso Restringido 🔒** con opciones para autenticarse o regresar al inicio.
+- **Credenciales Oficiales de Administrador:** Cuenta configurada en la BD: Email: `admin@senteytellus.com` | Contraseña: `admin`.
+
+---
+
+## 🌌 Fondos Dinámicos por Categoría e Imágenes Propias en Novedades
+- **Fondos por Categoría en la Tienda (`tienda.html`):** Al hacer clic en cada categoría de la barra lateral, el fondo de la pantalla cambia dinámicamente con una transición suave:
+  - 🔥 **Destacados:** `bg-cat-destacados.jpg` (Gradiente fuego, púrpura y partículas de brasa).
+  - 👑 **Rangos Globales:** `bg-cat-globales.jpg` (Galaxia morada imperial y destellos dorados).
+  - ⚔️ **Rangos Survival:** `bg-cat-survival.jpg` (Esmeralda mística y aura verde de obsidiana).
+  - 🗝️ **Llaves Místicas:** `bg-cat-llaves.jpg` (Grieta arcana en cian y azul cósmico).
+  - 💎 **Cosméticos:** `bg-cat-cosmeticos.jpg` (Nebulosa magenta y polvo de estrellas).
+  - 🪙 **Monedas:** `bg-cat-monedas.jpg` (Oro brillante y resplandor de tesoro).
+- **Fondos por Sección de Angel's Wans:**
+  - `angels-wans.html`: `page-principal` (`Fondop.png`).
+  - `tienda.html`: `page-tienda` (Fondo dinámico reactivo por categoría).
+  - `novedades.html`: `page-novedades` (`bg-page-novedades.jpg`).
+  - `soporte.html`: `page-soporte` (`bg-page-soporte.jpg`).
+- **Novedades Renovadas con Gráficos e Íconos Propios:**
+  - Se crearon 4 imágenes temáticas de alta resolución (800x480) que reemplazan a `Fondop.png`:
+    1. **`noticia-actualizacion.jpg`:** *Actualización 1.20: La Era de las Sombras* con ícono 🔮 y placa púrpura.
+    2. **`noticia-torneo.jpg`:** *Torneo Bedwars All-Stars 4v4* con ícono 🏆 y placa naranja.
+    3. **`noticia-caja-mistica.jpg`:** *Caja Mística del Vacío* con ícono 🗝️ y placa cian.
+    4. **`noticia-mantenimiento.jpg`:** *Optimización & Anti-Lag* con ícono 🛠️ y placa esmeralda.
+  - Cada noticia incluye insignias con categoría, fecha de publicación y efectos de sombra y hover.
+
+---
 *Fin del registro de cambios. Proyecto Sentey Tellus / Angel's Wans.*

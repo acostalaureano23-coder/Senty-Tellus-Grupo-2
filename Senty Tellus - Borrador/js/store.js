@@ -55,8 +55,25 @@ const TellusStore = (() => {
   }
 
   // ==========================================
-  // FILTRADO POR CATEGORÍAS
+  // FILTRADO Y FONDOS POR CATEGORÍA
   // ==========================================
+  const categoryBackgrounds = {
+    'destacados': "url('img/bg-cat-destacados.jpg')",
+    'rangos-globales': "url('img/bg-cat-globales.jpg')",
+    'rangos-survival': "url('img/bg-cat-survival.jpg')",
+    'llaves': "url('img/bg-cat-llaves.jpg')",
+    'cosmeticos': "url('img/bg-cat-cosmeticos.jpg')",
+    'monedas': "url('img/bg-cat-monedas.jpg')",
+    'todos': "url('img/bg-cat-destacados.jpg')"
+  };
+
+  function updateCategoryBackground(category) {
+    if (document.body.classList.contains('page-tienda') || document.querySelector('.store-main')) {
+      const bg = categoryBackgrounds[category] || categoryBackgrounds['destacados'];
+      document.body.style.backgroundImage = bg;
+    }
+  }
+
   function setupCategoryListeners() {
     const categoryLinks = document.querySelectorAll('.aw-sidebar-menu a');
     categoryLinks.forEach(link => {
@@ -75,8 +92,12 @@ const TellusStore = (() => {
         else currentCategory = 'todos';
 
         renderProducts();
+        updateCategoryBackground(currentCategory);
       });
     });
+
+    // Establecer fondo inicial de la categoría activa
+    updateCategoryBackground(currentCategory);
   }
 
   // ==========================================
