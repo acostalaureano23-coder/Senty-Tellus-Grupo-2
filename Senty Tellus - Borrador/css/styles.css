@@ -407,6 +407,7 @@ img {
   display: flex;
   flex-direction: column;
   gap: 22px;
+  scroll-margin-top: 24px;
 }
 
 .modules-header {
@@ -617,6 +618,448 @@ img {
 .fade-in-delay-3 { transition-delay: 0.3s; }
 
 /* ============================================
+   SECCIÓN SERVICIOS & SOLUCIONES DIGITALES
+   ============================================ */
+.services-card {
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-card-border);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+  padding: 34px 38px 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+  position: relative;
+}
+
+.services-header {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.services-badge-wrap {
+  display: flex;
+  align-items: center;
+}
+
+.services-badge-new {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--color-pill-bg);
+  color: var(--color-pill-text);
+  font-family: var(--font-body);
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  padding: 5px 14px;
+  border-radius: 20px;
+  border: 1px solid rgba(131, 79, 42, 0.18);
+}
+
+.services-badge-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--color-accent-brown);
+  box-shadow: 0 0 8px rgba(131, 79, 42, 0.4);
+  animation: pulseDot 2s infinite;
+}
+
+@keyframes pulseDot {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.3); opacity: 0.6; }
+}
+
+.services-title {
+  font-family: var(--font-heading);
+  font-size: 1.85rem;
+  font-weight: 800;
+  color: var(--color-text-title);
+  letter-spacing: -0.4px;
+  margin: 0;
+}
+
+.services-subtitle {
+  font-size: 0.94rem;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+  max-width: 820px;
+  margin: 0;
+}
+
+/* Grilla de Servicios */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.service-card-item {
+  background: var(--color-bg-card-sub);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: 20px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 15px rgba(80, 50, 25, 0.03);
+}
+
+.service-card-item:hover {
+  border-color: rgba(131, 79, 42, 0.4);
+  transform: translateY(-5px);
+  box-shadow: 0 14px 30px rgba(80, 50, 25, 0.09);
+}
+
+.service-card-media {
+  position: relative;
+  width: 100%;
+  height: 175px;
+  overflow: hidden;
+  background: #eee3d5;
+}
+
+.service-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.45s ease;
+}
+
+.service-card-item:hover .service-card-img {
+  transform: scale(1.05);
+}
+
+.service-type-badge {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  background: rgba(45, 25, 15, 0.82);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  color: #fff;
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 4px 11px;
+  border-radius: 12px;
+  letter-spacing: 0.3px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.service-card-body {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+}
+
+.service-card-title {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--color-text-title);
+  margin: 0;
+}
+
+.service-card-desc {
+  font-size: 0.85rem;
+  color: var(--color-text-body);
+  line-height: 1.55;
+  margin: 0;
+  flex: 1;
+}
+
+.service-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 6px;
+}
+
+.service-tag {
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 12px;
+  background: var(--color-pill-bg);
+  color: var(--color-pill-text);
+  border: 1px solid rgba(131, 79, 42, 0.12);
+}
+
+/* Banner de Contacto / CTA */
+.services-cta-banner {
+  background: linear-gradient(135deg, #f7efe4 0%, #fdf8f2 100%);
+  border: 1px solid rgba(220, 205, 190, 0.85);
+  border-radius: 20px;
+  padding: 26px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  box-shadow: 0 6px 20px rgba(80, 50, 25, 0.04);
+}
+
+.services-cta-text {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  max-width: 650px;
+}
+
+.services-cta-pill {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--color-accent-brown);
+}
+
+.services-cta-title {
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--color-text-title);
+  margin: 0;
+}
+
+.services-cta-desc {
+  font-size: 0.88rem;
+  color: var(--color-text-muted);
+  line-height: 1.55;
+  margin: 0;
+}
+
+.btn-solicitar-proyecto {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--color-accent-brown);
+  color: #ffffff;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 600;
+  padding: 13px 28px;
+  border-radius: 30px;
+  border: none;
+  cursor: pointer;
+  white-space: nowrap;
+  box-shadow: 0 6px 18px rgba(131, 79, 42, 0.22);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  flex-shrink: 0;
+}
+
+.btn-solicitar-proyecto:hover {
+  background: var(--color-accent-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(131, 79, 42, 0.32);
+}
+
+.btn-solicitar-proyecto span {
+  font-size: 1.1rem;
+  transition: transform 0.25s ease;
+}
+
+.btn-solicitar-proyecto:hover span {
+  transform: translateX(3px);
+}
+
+/* ============================================
+   MODAL DE CONTACTO / SOLICITAR PROYECTO
+   ============================================ */
+.project-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(30, 20, 15, 0.65);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+}
+
+.project-modal-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.project-modal {
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-card-border);
+  border-radius: 24px;
+  box-shadow: 0 24px 60px rgba(60, 35, 18, 0.25);
+  width: 100%;
+  max-width: 540px;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 30px 32px 32px;
+  position: relative;
+  transform: scale(0.94) translateY(15px);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.project-modal-overlay.active .project-modal {
+  transform: scale(1) translateY(0);
+}
+
+.project-modal-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 22px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(220, 205, 190, 0.6);
+}
+
+.project-modal-badge {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--color-accent-brown);
+  background: var(--color-pill-bg);
+  padding: 3px 10px;
+  border-radius: 12px;
+  margin-bottom: 6px;
+}
+
+.project-modal-title-wrap h3 {
+  font-family: var(--font-heading);
+  font-size: 1.45rem;
+  font-weight: 800;
+  color: var(--color-text-title);
+  margin: 0 0 4px;
+}
+
+.project-modal-title-wrap p {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  margin: 0;
+}
+
+.project-modal-close {
+  background: transparent;
+  border: none;
+  font-size: 1.6rem;
+  line-height: 1;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.project-modal-close:hover {
+  color: var(--color-text-title);
+  background: var(--color-pill-bg);
+}
+
+.project-modal-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form-group-tellus {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-group-tellus label {
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: var(--color-text-title);
+}
+
+.form-group-tellus label .req {
+  color: #c93b2b;
+}
+
+.form-group-tellus input,
+.form-group-tellus select,
+.form-group-tellus textarea {
+  width: 100%;
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  color: var(--color-text-title);
+  background: #ffffff;
+  border: 1px solid var(--color-border-subtle);
+  border-radius: 12px;
+  padding: 10px 14px;
+  transition: all 0.2s ease;
+  box-shadow: inset 0 1px 3px rgba(80, 50, 25, 0.04);
+}
+
+.form-group-tellus input:focus,
+.form-group-tellus select:focus,
+.form-group-tellus textarea:focus {
+  outline: none;
+  border-color: var(--color-accent-brown);
+  box-shadow: 0 0 0 3px rgba(131, 79, 42, 0.15);
+}
+
+.form-group-tellus textarea {
+  resize: vertical;
+  min-height: 90px;
+}
+
+.project-modal-actions {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.btn-project-submit {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 12px 18px;
+  border-radius: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: none;
+}
+
+.btn-submit-whatsapp {
+  background: #25d366;
+  color: #ffffff;
+  box-shadow: 0 4px 14px rgba(37, 211, 102, 0.28);
+}
+
+.btn-submit-whatsapp:hover {
+  background: #1eb956;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(37, 211, 102, 0.38);
+}
+
+.btn-submit-email {
+  background: var(--color-bg-card-sub);
+  color: var(--color-text-title);
+  border: 1px solid var(--color-card-border);
+}
+
+.btn-submit-email:hover {
+  background: var(--color-pill-bg);
+  border-color: var(--color-accent-brown);
+  transform: translateY(-1px);
+}
+
+/* ============================================
    RESPONSIVE
    ============================================ */
 @media (max-width: 960px) {
@@ -634,6 +1077,14 @@ img {
   .modules-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+  .services-cta-banner {
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+  }
 }
 
 @media (max-width: 640px) {
@@ -642,7 +1093,8 @@ img {
     gap: 16px;
   }
   .hero-card,
-  .modules-card {
+  .modules-card,
+  .services-card {
     padding: 24px 18px;
     border-radius: 20px;
   }
@@ -650,6 +1102,20 @@ img {
     font-size: 1.85rem;
   }
   .modules-grid {
+    grid-template-columns: 1fr;
+  }
+  .services-cta-banner {
+    padding: 20px 16px;
+  }
+  .btn-solicitar-proyecto {
+    width: 100%;
+    justify-content: center;
+  }
+  .project-modal {
+    padding: 20px 18px;
+    border-radius: 18px;
+  }
+  .project-modal-actions {
     grid-template-columns: 1fr;
   }
   .site-footer-inner {
